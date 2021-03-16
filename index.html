@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra tính đối xứng</title>
+</head>
+<body>
+    <p>Check Palind Array</p>
+    <label for="Palin"> Array : </label>
+    <input id="Palin" type="text" value="">
+    <input id="btn" type="button" value="Check">
+    <div id="result"><br></div>
+    <script>
+        let btn = document.getElementById("btn");
+        let res = document.getElementById("result");
+        btn.addEventListener('click', () => {
+        let str = document.getElementById("Palin").value;
+        isChecked(str);
+        })
+
+        function isChecked(str) {
+        if (str[0] == str[str.length - 1]) {
+            if (str.length === 1) {
+                res.innerHTML = 'Array is PALINDROME array';
+                return;
+            }
+            newStr = str.slice(1,str.length-1);
+            isChecked(newStr);
+        } else {
+            res.innerHTML = 'Array is NOT PALINDROME array';
+            return;
+        }
+    }
+</script>
+</body>
+</html>
